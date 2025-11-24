@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Conductores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2>Lista de Conductores</h2>
+
+    <a href="/conductor/crear" class="btn btn-primary mb-3">Nuevo Conductor</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th><th>Nombre</th><th>Apellido</th><th>DNI</th><th>Teléfono</th><th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="c : ${conductores}">
+            <td th:text="${c.conductorId}"></td>
+            <td th:text="${c.nombre}"></td>
+            <td th:text="${c.apellido}"></td>
+            <td th:text="${c.dni}"></td>
+            <td th:text="${c.telefono}"></td>
+
+            <td>
+                <a th:href="@{'/conductor/editar/' + ${c.conductorId}}" class="btn btn-sm btn-warning">Editar</a>
+                <a th:href="@{'/conductor/eliminar/' + ${c.conductorId}}" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Conductor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+
+    <h2 th:text="${conductor.conductorId} != null ? 'Editar Conductor' : 'Nuevo Conductor'"></h2>
+
+    <form th:action="@{/conductor/guardar}" th:object="${conductor}" method="post">
+
+        <input type="hidden" th:field="*{conductorId}"/>
+
+        <div class="form-group">
+            <label>Nombre</label>
+            <input class="form-control" th:field="*{nombre}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Apellido</label>
+            <input class="form-control" th:field="*{apellido}" required>
+        </div>
+
+        <div class="form-group">
+            <label>DNI</label>
+            <input class="form-control" th:field="*{dni}" required>
+        </div>
+
+        <div class="form-group">
+            <label>Teléfono</label>
+            <input class="form-control" th:field="*{telefono}">
+        </div>
+
+        <div class="form-group">
+            <label>Licencia</label>
+            <input class="form-control" th:field="*{licencia}">
+        </div>
+
+        <button class="btn btn-success">Guardar</button>
+        <a href="/conductor/listar" class="btn btn-secondary">Volver</a>
+
+    </form>
+
+</div>
+</body>
+</html>
