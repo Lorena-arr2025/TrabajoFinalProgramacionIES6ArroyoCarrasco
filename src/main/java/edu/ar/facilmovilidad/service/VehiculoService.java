@@ -13,31 +13,42 @@ public class VehiculoService {
     @Autowired
     private VehiculoRepository vehiculoRepository;
 
-    // Listar todos los vehículos
+    // LISTAR TODOS
     public List<Vehiculo> listarTodos() {
         return vehiculoRepository.findAll();
     }
 
-    // Listar solo vehículos activos
+    // LISTAR SOLO ACTIVOS (estado = true)
     public List<Vehiculo> listarActivos() {
-        return vehiculoRepository.findByEstadoTrue();
+        return vehiculoRepository.findAll()
+                .stream()
+                .filter(Vehiculo::isEstado)   // usa tu getter REAL
+                .toList();
     }
 
-    // Guardar / actualizar un vehículo
+    // LISTAR SOLO VEHÍCULOS DISPONIBLES
+    public List<Vehiculo> listarDisponibles() {
+        return vehiculoRepository.findAll()
+                .stream()
+                .filter(Vehiculo::isDisponible)   // usa tu getter REAL
+                .toList();
+    }
+
+    // GUARDAR
     public Vehiculo guardar(Vehiculo vehiculo) {
         return vehiculoRepository.save(vehiculo);
     }
 
-    // Buscar por ID
+    // BUSCAR POR ID
     public Vehiculo buscarPorId(Integer id) {
         return vehiculoRepository.findById(id).orElse(null);
     }
 
-    // Borrado lógico (estado = false)
+    // BORRADO LÓGICO
     public void eliminarLogico(Integer id) {
         Vehiculo vehiculo = buscarPorId(id);
         if (vehiculo != null) {
-            vehiculo.setEstado(false);
+            vehiculo.setEstado(false); // tu atributo REAL
             vehiculoRepository.save(vehiculo);
         }
     }

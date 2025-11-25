@@ -1,5 +1,7 @@
 package edu.ar.facilmovilidad.service;
 
+import edu.ar.facilmovilidad.model.Usuario;
+import edu.ar.facilmovilidad.model.Vehiculo;
 import edu.ar.facilmovilidad.model.Viaje;
 import edu.ar.facilmovilidad.repository.ViajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,7 @@ public class ViajeService {
         return viajeRepository.findByEstadoTrue();
     }
 
-    // Guardar viaje
+    // Guardar viaje (CRUD básico)
     public Viaje guardar(Viaje viaje) {
         return viajeRepository.save(viaje);
     }
@@ -41,4 +43,17 @@ public class ViajeService {
             viajeRepository.save(viaje);
         }
     }
+
+    // ⭐ MÉTODO ESPECIAL PARA EL VIAJE CONTROLLER DE LORENA
+    public Viaje registrarViaje(Usuario usuario, Vehiculo vehiculo, String tipoDistancia) {
+
+        Viaje viaje = new Viaje();
+        viaje.setUsuario(usuario);
+        viaje.setVehiculo(vehiculo);
+        viaje.setTipoDistancia(tipoDistancia);
+        viaje.setEstado(true);
+
+        return viajeRepository.save(viaje);
+    }
 }
+

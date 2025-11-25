@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Vehículos</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container mt-4">
+
+    <h2>Lista de Vehículos</h2>
+
+    <a href="/vehiculo/crear" class="btn btn-primary mb-3">Nuevo Vehículo</a>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Patente</th>
+            <th>Tipo</th>
+            <th>Conductor</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="v : ${vehiculos}">
+            <td th:text="${v.vehiculoId}"></td>
+            <td th:text="${v.marca}"></td>
+            <td th:text="${v.modelo}"></td>
+            <td th:text="${v.patente}"></td>
+            <td th:text="${v.tipo}"></td>
+            <td th:text="${v.conductor != null ? v.conductor.nombre + ' ' + v.conductor.apellido : '—'}"></td>
+
+            <td>
+                <a th:href="@{'/vehiculo/editar/' + ${v.vehiculoId}}"
+                   class="btn btn-warning btn-sm">Editar</a>
+
+                <a th:href="@{'/vehiculo/eliminar/' + ${v.vehiculoId}}"
+                   class="btn btn-danger btn-sm">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

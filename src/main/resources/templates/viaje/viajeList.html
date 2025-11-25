@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Seleccionar Usuario</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container mt-4">
+    <h2>Seleccionar Usuario</h2>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Acción</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="u : ${usuarios}">
+            <td th:text="${u.usuarioId}"></td>
+            <td th:text="${u.nombre + ' ' + u.apellido}"></td>
+            <td th:text="${u.email}"></td>
+            <td>
+                <a th:href="@{'/viaje/seleccionarVehiculo/' + ${u.usuarioId}}"
+                   class="btn btn-primary btn-sm">Elegir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
