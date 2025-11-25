@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Resumen del Viaje</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div class="container mt-4">
+
+    <h2>Resumen del Viaje</h2>
+
+    <p><b>Usuario:</b>
+        <span th:text="${usuario.nombre + ' ' + usuario.apellido}"></span>
+    </p>
+
+    <p><b>Vehículo:</b>
+        <span th:text="${vehiculo.marca + ' ' + vehiculo.modelo}"></span>
+    </p>
+
+    <p><b>Tipo de viaje:</b>
+        <span th:text="${viaje.tipoDistancia}"></span>
+    </p>
+
+    <p><b>Costo final:</b>
+        $<span th:text="${viaje.costoFinal}"></span>
+    </p>
+
+    <hr>
+
+    <h4>Conductor</h4>
+
+    <p><b>Nombre:</b>
+        <span th:text="${conductor.nombre + ' ' + conductor.apellido}"></span>
+    </p>
+
+    <p><b>Licencia:</b>
+        <span th:text="${conductor.licencia}"></span>
+    </p>
+
+    <p><b>Teléfono:</b>
+        <span th:text="${conductor.telefono}"></span>
+    </p>
+
+    <a href="/" class="btn btn-primary mt-3">Volver al inicio</a>
+
+</div>
+
+</body>
+</html>

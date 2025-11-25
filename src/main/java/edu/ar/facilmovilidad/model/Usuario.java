@@ -1,8 +1,8 @@
 package edu.ar.facilmovilidad.model;
 
 import jakarta.persistence.*;
-//import java.util.ArrayList;
-//import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "usuario")
@@ -28,8 +28,8 @@ public class Usuario {
     private String direccion;
 
     // Relación 1:N con Viaje
-    //@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    //private List<Viaje> viajesRealizados = new ArrayList<>();
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Viaje> viajesRealizados = new ArrayList<>();
 
     // Borrado lógico
     @Column(nullable = false)
@@ -61,8 +61,8 @@ public class Usuario {
     public void setTelefono(String telefono) { this.telefono = telefono; }
     public String getDireccion() { return direccion; }
     public void setDireccion(String direccion) { this.direccion = direccion; }
-   //public List<Viaje> getViajesRealizados() { return viajesRealizados; }
-   // public void setViajesRealizados(List<Viaje> viajesRealizados) { this.viajesRealizados = viajesRealizados; }
+    public List<Viaje> getViajesRealizados() { return viajesRealizados; }
+    public void setViajesRealizados(List<Viaje> viajesRealizados) { this.viajesRealizados = viajesRealizados; }
     public boolean isEstado() { return estado; }
     public void setEstado(boolean estado) { this.estado = estado; }
 }

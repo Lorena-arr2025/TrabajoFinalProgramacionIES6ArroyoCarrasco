@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Viaje</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container mt-4">
+
+    <h2>Registrar Viaje</h2>
+
+    <p><b>Usuario seleccionado:</b>
+        <span th:text="${usuario.nombre + ' ' + usuario.apellido}"></span>
+    </p>
+
+    <form action="/viaje/guardar" method="post">
+
+        <input type="hidden" name="usuarioId" th:value="${usuario.usuarioId}"/>
+
+        <div class="form-group">
+            <label>Vehículos disponibles</label>
+            <select class="form-control" name="vehiculoId" required>
+                <option th:each="v : ${vehiculos}"
+                        th:value="${v.vehiculoId}"
+                        th:text="${v.marca + ' ' + v.modelo + ' (' + v.tipo + ')'}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Tipo de distancia</label>
+            <select class="form-control" name="tipoDistancia" required>
+                <option value="CORTA">Corta</option>
+                <option value="MEDIA">Media</option>
+                <option value="LARGA">Larga</option>
+            </select>
+        </div>
+
+        <button class="btn btn-success">Calcular y Guardar</button>
+        <a href="/viaje/seleccionarUsuario" class="btn btn-secondary">Volver</a>
+
+    </form>
+
+</div>
+</body>
+</html>
