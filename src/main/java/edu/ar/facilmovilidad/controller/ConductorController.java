@@ -8,25 +8,23 @@ import org.springframework.web.bind.annotation.*;
 import edu.ar.facilmovilidad.model.Conductor;
 import edu.ar.facilmovilidad.service.ConductorService;
 
-
-
 @Controller
 @RequestMapping("/conductor")
 public class ConductorController {
 
-    @Autowired
+     @Autowired
     private ConductorService conductorService;
 
     @GetMapping("/listar")
     public String listar(Model model) {
         model.addAttribute("conductores", conductorService.listarActivos());
-        return "conductor/conductorList";
+        return "conductorList";   // OK
     }
 
     @GetMapping("/crear")
     public String crear(Model model) {
         model.addAttribute("conductor", new Conductor());
-        return "conductor/conductorForm";
+        return "conductorForm";   // ← CORREGIDO
     }
 
     @PostMapping("/guardar")
@@ -38,7 +36,7 @@ public class ConductorController {
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable Integer id, Model model) {
         model.addAttribute("conductor", conductorService.buscarPorId(id));
-        return "conductor/conductorForm";
+        return "conductorForm";  // ← CORREGIDO
     }
 
     @GetMapping("/eliminar/{id}")
@@ -47,4 +45,3 @@ public class ConductorController {
         return "redirect:/conductor/listar";
     }
 }
-
