@@ -26,8 +26,8 @@ public class Conductor {
     private String licencia;
 
     // Relación 1:1 con Vehiculo (mappedBy en Vehiculo)
-    @OneToOne(mappedBy = "conductor")
-    private Vehiculo vehiculo;
+    //@OneToOne(mappedBy = "conductor")
+    //private Vehiculo vehiculo;
 
     // Borrado lógico
     @Column(nullable = false)
@@ -57,8 +57,8 @@ public class Conductor {
     public void setTelefono(String telefono) { this.telefono = telefono; }
     public String getLicencia() { return licencia; }
     public void setLicencia(String licencia) { this.licencia = licencia; }
-    public Vehiculo getVehiculo() { return vehiculo; }
-    public void setVehiculo(Vehiculo vehiculo) { this.vehiculo = vehiculo; }
+    //public Vehiculo getVehiculo() { return vehiculo; }
+    //public void setVehiculo(Vehiculo vehiculo) { this.vehiculo = vehiculo; }
     public boolean isEstado() { return estado; }
     public void setEstado(boolean estado) { this.estado = estado; }
 }
