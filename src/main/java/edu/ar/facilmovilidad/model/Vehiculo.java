@@ -1,6 +1,4 @@
-// Update test for branch display
 package edu.ar.facilmovilidad.model;
-
 
 import jakarta.persistence.*;
 import java.util.ArrayList;
@@ -83,4 +81,3 @@ public class Vehiculo {
     public boolean isEstado() { return estado; }
     public void setEstado(boolean estado) { this.estado = estado; }
 }
-

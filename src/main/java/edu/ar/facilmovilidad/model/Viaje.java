@@ -1,4 +1,3 @@
-// Redraw branch position test
 package edu.ar.facilmovilidad.model;
 
 import jakarta.persistence.*;

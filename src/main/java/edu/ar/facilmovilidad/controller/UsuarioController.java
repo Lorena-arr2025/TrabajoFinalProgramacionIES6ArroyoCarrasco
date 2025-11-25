@@ -14,19 +14,19 @@ import edu.ar.facilmovilidad.service.UsuarioService;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-    @Autowired
+     @Autowired
     private UsuarioService usuarioService;
 
     @GetMapping("/listar")
     public String listar(Model model) {
         model.addAttribute("usuarios", usuarioService.listarActivos());
-        return "usuario/usuarioList";
+        return "usuarioList";
     }
 
     @GetMapping("/crear")
     public String crear(Model model) {
         model.addAttribute("usuario", new Usuario());
-        return "usuario/usuarioForm";
+        return "usuarioForm";
     }
 
     @PostMapping("/guardar")
@@ -39,7 +39,7 @@ public class UsuarioController {
     public String editar(@PathVariable Integer id, Model model) {
         Usuario usuario = usuarioService.buscarPorId(id);
         model.addAttribute("usuario", usuario);
-        return "usuario/usuarioForm";
+        return "usuarioForm"; 
     }
 
     @GetMapping("/eliminar/{id}")
@@ -48,4 +48,3 @@ public class UsuarioController {
         return "redirect:/usuario/listar";
     }
 }
-    

@@ -44,7 +44,7 @@ public class ViajeService {
         }
     }
 
-    // ⭐ MÉTODO ESPECIAL PARA EL VIAJE CONTROLLER DE LORENA
+    // MÉTODO PARA EL VIAJE CONTROLLER 
     public Viaje registrarViaje(Usuario usuario, Vehiculo vehiculo, String tipoDistancia) {
 
         Viaje viaje = new Viaje();
@@ -56,4 +56,3 @@ public class ViajeService {
         return viajeRepository.save(viaje);
     }
 }
-

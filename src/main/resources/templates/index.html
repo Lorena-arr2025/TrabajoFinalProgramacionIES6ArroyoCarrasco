@@ -1,20 +1,70 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>FacilMovilidad - Inicio</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>FacilMovilidad</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #4C52FF, #6EE7B7);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+            border-radius: 15px;
+            background: #ffffffee;
+            color: #333;
+            padding: 30px;
+            box-shadow: 0px 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-custom {
+            border-radius: 10px;
+            padding: 15px;
+            transition: 0.3s;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container mt-5">
-    <h1 class="text-center mb-4">FacilMovilidad</h1>
+<div class="card text-center w-75">
+    <h1 class="mb-4">🚗 FacilMovilidad</h1>
+    <p class="mb-4">Sistema de gestión para usuarios, conductores, vehículos y viajes.</p>
 
-    <div class="list-group">
-        <a href="/usuario/listar" class="list-group-item list-group-item-action">Gestionar Usuarios</a>
-        <a href="/conductor/listar" class="list-group-item list-group-item-action">Gestionar Conductores</a>
-        <a href="/vehiculo/listar" class="list-group-item list-group-item-action">Gestionar Vehículos</a>
-        <a href="/viaje/seleccionarUsuario" class="list-group-item list-group-item-action">Registrar Viaje</a>
+    <div class="d-grid gap-3">
+
+        <a href="/usuario/listar" class="btn btn-primary btn-custom">
+            👤 Gestionar Usuarios
+        </a>
+
+        <a href="/conductor/listar" class="btn btn-warning btn-custom">
+            🚕 Gestionar Conductores
+        </a>
+
+        <a href="/vehiculo/listar" class="btn btn-success btn-custom">
+            🚗 Gestionar Vehículos
+        </a>
+
+        <a href="/viaje/seleccionarUsuario" class="btn btn-info btn-custom">
+            🧭 Registrar Viaje
+        </a>
+
     </div>
 </div>
 

@@ -14,5 +14,3 @@ public interface VehiculoRepository extends JpaRepository<Vehiculo, Integer> {
     // Vehículos disponibles para viaje
     List<Vehiculo> findByDisponibleTrue();
 }
-
-
